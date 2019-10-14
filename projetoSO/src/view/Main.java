@@ -6,6 +6,7 @@
 package view;
 
 import java.awt.Color;
+import java.awt.Event;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -20,9 +21,8 @@ public class Main extends javax.swing.JFrame {
     /**
      * Creates new form Main
      */
-    
     private JLabel[] cadeirasClientes = new JLabel[6];
-    
+
     public Main() {
         initComponents();
         cadeirasClientes[0] = lbl_cadeira1;
@@ -31,12 +31,10 @@ public class Main extends javax.swing.JFrame {
         cadeirasClientes[3] = lbl_cadeira4;
         cadeirasClientes[4] = lbl_cadeira5;
         cadeirasClientes[5] = lbl_cadeira6;
-        
+
         verificarVagas();
     }
-    
-    
-    
+
     private void verificarVagas() {
         // Método responsável por alterar o icone do JLabel referente ao barbeiro.
         if (verificarCadeirasVagas() == false) {
@@ -45,17 +43,17 @@ public class Main extends javax.swing.JFrame {
             this.lbl_barbeiro.setIcon(new ImageIcon(getClass().getResource("/icons/cadeira_barbeiro.png")));
         }
     }
-    
-    private boolean verificarCadeirasVagas(){
+
+    private boolean verificarCadeirasVagas() {
         int totalOcupadas = 0;
-        for(JLabel c : this.cadeirasClientes){
-            if(c.getText().length() == 0){
-                totalOcupadas ++;
+        for (JLabel c : this.cadeirasClientes) {
+            if (c.getText().length() == 0) {
+                totalOcupadas++;
             }
         }
         return (totalOcupadas == 6 ? true : false);
     }
-    
+
     private JLabel buscarEretornarCadeiraVaga() {
         for (JLabel c : this.cadeirasClientes) {
             if (c.getText().length() == 0) {
@@ -91,7 +89,6 @@ public class Main extends javax.swing.JFrame {
         lbl_cadeira4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lbl_barbeiro = new javax.swing.JLabel();
-        bt_irBarbearia = new javax.swing.JButton();
         lbl_nomeCliente = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -186,7 +183,7 @@ public class Main extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(lbl_barbeiro, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
+                .addComponent(lbl_barbeiro, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -196,13 +193,6 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(lbl_barbeiro, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
                 .addContainerGap())
         );
-
-        bt_irBarbearia.setText("Ir à barbearia");
-        bt_irBarbearia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bt_irBarbeariaActionPerformed(evt);
-            }
-        });
 
         lbl_nomeCliente.setText("NOME DO CLIENTE");
         lbl_nomeCliente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -221,17 +211,11 @@ public class Main extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(painel_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addComponent(bt_irBarbearia, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(painel_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(43, 43, 43)
@@ -247,38 +231,35 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lbl_nomeCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(bt_irBarbearia, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addComponent(lbl_nomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(817, 471));
+        setSize(new java.awt.Dimension(817, 428));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bt_irBarbeariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_irBarbeariaActionPerformed
-        // Método que inseri o novo cliente em alguma cadeira vaga.
-        JLabel cadeiraVaga = this.buscarEretornarCadeiraVaga();
-        String nomeNovoCli = lbl_nomeCliente.getText();
-        if (cadeiraVaga != null) {
-            if (nomeNovoCli.length() == 0 || nomeNovoCli.equalsIgnoreCase("NOME DO CLIENTE")) {
-                this.lbl_nomeCliente.requestFocus();
-                this.lbl_nomeCliente.setBackground(Color.GREEN);
-            } else {
-                cadeiraVaga.setText(nomeNovoCli);
-                this.verificarVagas();
-                this.lbl_nomeCliente.setText("");
-                this.lbl_nomeCliente.setBackground(Color.WHITE);
-            }
-        }else{
-            JOptionPane.showMessageDialog(null,"Não há vagas. O cliente foi embora.");
-        }
-    }//GEN-LAST:event_bt_irBarbeariaActionPerformed
-
     private void lbl_nomeClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lbl_nomeClienteKeyPressed
-        // TODO add your handling code here:
-        
+        if (evt.getKeyCode() == Event.ENTER) {
+            // Método que inseri o novo cliente em alguma cadeira vaga.
+            JLabel cadeiraVaga = this.buscarEretornarCadeiraVaga();
+            String nomeNovoCli = lbl_nomeCliente.getText();
+
+            if (cadeiraVaga != null) {
+                if (nomeNovoCli.length() == 0 || nomeNovoCli.equalsIgnoreCase("NOME DO CLIENTE")) {
+                    this.lbl_nomeCliente.requestFocus();
+                    this.lbl_nomeCliente.setBackground(Color.GREEN);
+                } else {
+                    cadeiraVaga.setText(nomeNovoCli);
+                    this.verificarVagas();
+                    this.lbl_nomeCliente.setText("");
+                    this.lbl_nomeCliente.setBackground(Color.WHITE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Não há vagas. O cliente foi embora.");
+            }
+        }
+
     }//GEN-LAST:event_lbl_nomeClienteKeyPressed
 
     private void lbl_nomeClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_nomeClienteMouseClicked
@@ -322,7 +303,6 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bt_irBarbearia;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
