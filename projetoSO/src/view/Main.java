@@ -40,7 +40,7 @@ public class Main extends javax.swing.JFrame {
         if (verificarCadeirasVagas() == false) {
             this.lbl_barbeiro.setIcon(new ImageIcon(getClass().getResource("/icons/barbeiro_cortando.gif")));
         } else {
-            this.lbl_barbeiro.setIcon(new ImageIcon(getClass().getResource("/icons/cadeira_barbeiro.png")));
+            this.lbl_barbeiro.setIcon(new ImageIcon(getClass().getResource("/icons/barbeiro_dormindo.png")));
         }
     }
 
