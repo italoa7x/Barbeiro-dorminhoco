@@ -78,14 +78,14 @@ public class ViewProblemaBarbeiro extends javax.swing.JFrame implements Observer
 
         cadeiraBarbeiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/barbeiro_dormindo.PNG"))); // NOI18N
 
-        btComecar.setText("Começar");
+        btComecar.setText("Start");
         btComecar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btComecarActionPerformed(evt);
             }
         });
 
-        btParar.setText("Parar");
+        btParar.setText("Stop");
         btParar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btPararActionPerformed(evt);
@@ -255,44 +255,49 @@ public class ViewProblemaBarbeiro extends javax.swing.JFrame implements Observer
 
                     if (barbeiro) {
                         cadeiraBarbeiro.setIcon(new ImageIcon(getClass().getResource("/icones/barbeiro_cortando.gif")));
-                    } 
-                    if(cadeiras == 0){
-                        cadeiraBarbeiro.setIcon(new ImageIcon(getClass().getResource("/icones/barbeiro_dormindo.png")));
                     }
+                    if(cadeiras == 0) {
+                    	cadeiraBarbeiro.setIcon(new ImageIcon(getClass().getResource("/icones/barbeiro_dormindo.png")));
+                    }
+                
                     if (cadeiras > 0) {
-                        cadeira1.setBackground(Color.ORANGE);
+                        cadeira1.setBackground(Color.RED);
                         jLabel1.setText("Ocupado");
                     } else {
                         jLabel1.setText("");
-                        cadeira1.setBackground(Color.gray);
+                        cadeira1.setBackground(Color.GREEN);
                     }
                     if (cadeiras > 1) {
                         jLabel2.setText("Ocupado");
-                        cadeira2.setBackground(Color.ORANGE);
+                        cadeira2.setBackground(Color.RED);
                     } else {
                         jLabel2.setText("");
-                        cadeira2.setBackground(Color.gray);
+                        cadeira2.setBackground(Color.GREEN);
                     }
                     if (cadeiras > 2) {
                         jLabel3.setText("Ocupado");
-                        cadeira3.setBackground(Color.ORANGE);
+                        cadeira3.setBackground(Color.RED);
                     } else {
                         jLabel3.setText("");
-                        cadeira3.setBackground(Color.gray);
+                        cadeira3.setBackground(Color.GREEN);
                     }
                     if (cadeiras > 3) {
                         jLabel4.setText("Ocupado");
-                        cadeira4.setBackground(Color.ORANGE);
+                        cadeira4.setBackground(Color.RED);
                     } else {
                         jLabel4.setText("");
-                        cadeira4.setBackground(Color.gray);
+                        cadeira4.setBackground(Color.GREEN);
                     }
                     if (cadeiras > 4) {
                         jLabel5.setText("Ocupado");
-                        cadeira5.setBackground(Color.ORANGE);
+                        cadeira5.setBackground(Color.RED);
                     } else {
                         jLabel5.setText("");
-                        cadeira5.setBackground(Color.gray);
+                        cadeira5.setBackground(Color.GREEN);
+                    }
+                    
+                    if(cadeiras == 6) {
+                    	JOptionPane.showMessageDialog(null,"Salao cheio. O cliente foi embora");
                     }
                 }
             }

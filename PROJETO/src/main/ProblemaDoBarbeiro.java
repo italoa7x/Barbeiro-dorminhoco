@@ -55,20 +55,20 @@ public class ProblemaDoBarbeiro extends Observable {
             notifyObservers();
             Thread.sleep(500);
         } catch (InterruptedException ex) {
-            System.out.println("Não foi possível fazer a thread dormir.");
+            System.out.println("Nao foi possivel fazer a thread dormir.");
         }
 
     }
 
     /**
-     * returna quantas cadeiras estão ocupadas atualmente.
+     * returna quantas cadeiras est�o ocupadas atualmente.
      */
     public int getCadeirasOcupadas() {
         return cadeirasOcupadas;
     }
 
     /**
-     * retorna um boolean para saber se a cadeira do barbeiro está ocupada.
+     * retorna um boolean para saber se a cadeira do barbeiro esta ocupada.
      */
     public boolean getCadeiraBarbeiroOcupada() {
         return cadeiraBarbeiroOcupada;
@@ -76,7 +76,7 @@ public class ProblemaDoBarbeiro extends Observable {
 
     /**
      * 
-     * Método responsável por iniciar a execução
+     * Metodo responsavel por iniciar a execucao
      */
     public void setExecuta(boolean executa) {
         this.executa.set(executa);
